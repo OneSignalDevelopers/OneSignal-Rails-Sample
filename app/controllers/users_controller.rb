@@ -35,13 +35,13 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET /verify/:id
+  # GET /verify/:token
   def verify
-    @user = User.find_by(veriftok: params[:id])
-    if user
-      user.confirm_email!
+    @user = User.find_by(email_veriftok: params[:token])
+    if @user
+      @user.confirm_email!
       UserMailer.email_welcome(@user).deliver
-      flash[:success] = 'Welcome!  Thanks for confirming your email.  Please proceed to login.'
+      flash[:notice] = 'Welcome!  Thanks for confirming your email.  Please proceed to login.'
       redirect_to login_url
     else
       flash[:error] = 'Unable to find user.'

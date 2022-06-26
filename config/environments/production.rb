@@ -5,6 +5,15 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Set default host name for URL generation in views, controllers, mailers.
+  config.action_mailer.default_url_options = { host: 'example.com' }
+  config.action_controller.default_url_options = { host: 'example.com' }
+
+  # Specify OneSignal App ID for the development environment.
+  config.action_mailer.onesignal_settings = {
+    app_id: 'XXX'
+  }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 

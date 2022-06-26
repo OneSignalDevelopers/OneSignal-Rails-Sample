@@ -2,4 +2,6 @@ Hello <%= @user.name %>,
 
 Thanks for registering! To confirm your registration click the URL below:
 
-<%= url_for(action: 'verify', controller: 'users')  %>
+<%= url_for(action: 'verify', controller: 'users', token: @user.email_veriftok)  %>
+
+Cheers

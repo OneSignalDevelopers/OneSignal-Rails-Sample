@@ -10,6 +10,15 @@ require 'active_support/core_ext/integer/time'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Set default host name for URL generation in views, controllers, mailers.
+  config.action_mailer.default_url_options = { host: 'test.example.com', port: 3000 }
+  config.action_controller.default_url_options = { host: 'test.example.com', port: 3000 }
+
+  # Specify OneSignal App ID for the development environment.
+  config.action_mailer.onesignal_settings = {
+    app_id: 'XXX'
+  }
+
   # Turn false under Spring and add config.action_view.cache_template_loading = true.
   config.cache_classes = true
 

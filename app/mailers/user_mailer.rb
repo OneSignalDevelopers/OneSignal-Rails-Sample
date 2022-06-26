@@ -5,13 +5,13 @@ class UserMailer < ApplicationMailer
   layout 'mailer'
   def email_verification(user)
     @user = user
-    mail(to: '',
-         subject: '')
+    mail(to: @user.email,
+         subject: 'Confirm your application to example.com')
   end
 
   def email_welcome(user)
     @user = user
-    mail(to: '',
-         subject: '')
+    mail(to: @user.email,
+         subject: 'Welcome to example.com!')
   end
 end
